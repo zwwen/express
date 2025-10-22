@@ -1,8 +1,0 @@
-[
-  { "id": 1, "name": "Alice", "age": 18 },
-  { "id": 2, "name": "Bob", "age": 20 },
-  { "name": "yyy", "age": "18", "id": 3 },
-  { "name": "xxx", "age": "18", "id": 4 },
-  { "name": "xxx", "age": "22", "id": 5 },
-  { "name": "xxx", "age": "22", "id": 6 }
-]
