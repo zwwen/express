@@ -9,6 +9,7 @@ const app = express();
 // 使用中间件
 app.use(express.json());
 app.use(express.urlencoded());
+app.use(express.static("public"));
 app.use(cors());
 app.use(morgan("dev"));
 app.use("/api/v1", router);

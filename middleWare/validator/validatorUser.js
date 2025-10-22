@@ -69,3 +69,38 @@ module.exports.login = validator([
     })
     .bail(),
 ]);
+module.exports.update = validator([
+  body("email")
+    .isEmail()
+    .withMessage("邮箱格式有误")
+    .bail()
+    .custom(async (value) => {
+      const emailValidate = await User.findOne({ email: value });
+      if (emailValidate) {
+        return Promise.reject("邮箱已被注册");
+      }
+    })
+    .bail(),
+  body("username")
+    .custom(async (value) => {
+      const nameValidate = await User.findOne({ username: value });
+      if (nameValidate) {
+        return Promise.reject("用户已被注册");
+      }
+    })
+    .bail(),
+  body("phone")
+    .notEmpty()
+    .withMessage("手机号不能为空")
+    .bail()
+    .isMobilePhone()
+    .withMessage("手机格式有误")
+    .bail()
+    .custom(async (value) => {
+      const phoneValidate = await User.findOne({ phone: value });
+      if (phoneValidate) {
+        return Promise.reject("手机号已被注册");
+      }
+    })
+    .bail(),
+]);

@@ -28,6 +28,14 @@ const UserSchema = new mongoose.Schema({
     type: String,
     default: null,
   },
+  cover: {
+    type: String,
+    default: null,
+  },
+  channelDesc: {
+    type: String,
+    default: null,
+  },
   ...base,
 });
 
